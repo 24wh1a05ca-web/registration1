@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Summer Earth Summit 2026</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+body{background:url("images/green.png") center/cover fixed;padding:30px}
+.container{max-width:850px;margin:auto;background:rgba(255,255,255,.95);padding:30px;border-radius:15px;box-shadow:0 0 15px rgba(0,0,0,.3)}
+h1,p{text-align:center}
+h1{color:darkgreen}
+p{margin:10px 0 20px}
+table{width:100%}
+td{padding:8px;vertical-align:top}
+input,select,textarea{width:100%;padding:10px;border:1px solid #aaa;border-radius:5px}
+textarea{resize:none}
+.radio input,.check input{width:auto}
+.error{color:red;font-size:12px}
+.btn{text-align:center;margin-top:20px}
+button{padding:10px 25px;border:none;border-radius:5px;color:#fff;cursor:pointer;margin:5px}
+.submit{background:green}
+.reset{background:crimson}
+</style>
+
+</head>
+<body>
+
+<div class="container">
+
+<h1>🌍 Summer Earth Summit 2026</h1>
+<p>Registration Form for Sustainability & Climate Action Event</p>
+
+<form id="registrationForm">
+
+<table>
+
+<tr><td>First Name</td><td>
+<input type="text" id="fname">
+<div class="error" id="fnameError"></div>
+</td></tr>
+
+<tr><td>Last Name</td><td>
+<input type="text" id="lname">
+<div class="error" id="lnameError"></div>
+</td></tr>
+
+<tr><td>Username</td><td>
+<input type="text" id="username">
+<div class="error" id="usernameError"></div>
+</td></tr>
+
+<tr><td>Email</td><td>
+<input type="email" id="email">
+<div class="error" id="emailError"></div>
+</td></tr>
+
+<tr><td>Password</td><td>
+<input type="password" id="password">
+<div class="error" id="passwordError"></div>
+</td></tr>
+
+<tr><td>Confirm Password</td><td>
+<input type="password" id="confirmPassword">
+<div class="error" id="confirmError"></div>
+</td></tr>
+
+<tr><td>Phone</td><td>
+<input type="text" id="phone">
+<div class="error" id="phoneError"></div>
+</td></tr>
+
+<tr><td>Date of Birth</td><td><input type="date"></td></tr>
+
+<tr><td>Age</td><td><input type="number" min="15" max="100"></td></tr>
+
+<tr><td>Gender</td><td class="radio">
+<input type="radio" name="gender"> Male
+<input type="radio" name="gender"> Female
+<input type="radio" name="gender"> Other
+</td></tr>
+
+<tr><td>Address</td><td><textarea rows="3"></textarea></td></tr>
+
+<tr><td>City</td><td><input type="text"></td></tr>
+
+<tr><td>State</td><td><input type="text"></td></tr>
+
+<tr><td>Country</td><td><input type="text"></td></tr>
+
+<tr><td>Postal Code</td><td><input type="text"></td></tr>
+
+<tr><td>College / Organization</td><td><input type="text"></td></tr>
+
+<tr><td>Occupation</td><td><input type="text"></td></tr>
+
+<tr><td>Session</td><td>
+<select>
+<option>Select</option>
+<option>Climate Change Workshop</option>
+<option>Green Technology Expo</option>
+<option>Tree Plantation Drive</option>
+<option>Renewable Energy Seminar</option>
+<option>Ocean Conservation Talk</option>
+</select>
+</td></tr>
+
+<tr><td>Ticket Type</td><td>
+<select>
+<option>Student</option>
+<option>General</option>
+<option>VIP</option>
+</select>
+</td></tr>
+
+<tr><td>Environmental Interest</td><td>
+<select>
+<option>Climate Action</option>
+<option>Wildlife</option>
+<option>Recycling</option>
+<option>Renewable Energy</option>
+<option>Water Conservation</option>
+</select>
+</td></tr>
+
+<tr><td>Volunteer</td><td>
+<select>
+<option>Yes</option>
+<option>No</option>
+</select>
+</td></tr>
+
+<tr><td>T-Shirt Size</td><td>
+<select>
+<option>S</option>
+<option>M</option>
+<option>L</option>
+<option>XL</option>
+<option>XXL</option>
+</select>
+</td></tr>
+
+<tr><td>Food Preference</td><td>
+<select>
+<option>Vegetarian</option>
+<option>Vegan</option>
+<option>Other</option>
+</select>
+</td></tr>
+
+<tr><td>Emergency Contact</td><td><input type="text"></td></tr>
+
+<tr><td>Emergency Number</td><td><input type="text"></td></tr>
+
+<tr><td>LinkedIn</td><td><input type="url"></td></tr>
+
+<tr><td>Upload Photo</td><td><input type="file"></td></tr>
+
+<tr><td>Resume</td><td><input type="file"></td></tr>
+
+<tr><td>Why Attend?</td><td><textarea rows="3"></textarea></td></tr>
+
+<tr><td>Suggestions</td><td><textarea rows="3"></textarea></td></tr>
+
+<tr>
+<td colspan="2" class="check">
+<input type="checkbox" required> I agree to the Terms & Conditions
+</td>
+</tr>
+
+</table>
+
+<div class="btn">
+<button class="submit">Register</button>
+<button type="reset" class="reset">Reset</button>
+</div>
+
+</form>
+
+</div>
+
+<script>
+const $=id=>document.getElementById(id);
+
+registrationForm.addEventListener("submit",e=>{
+
+let valid=true;
+
+document.querySelectorAll(".error").forEach(x=>x.textContent="");
+
+const show=(id,msg)=>{
+$(id).textContent=msg;
+valid=false;
+};
+
+if(!/^[A-Za-z ]{3,}$/.test($("fname").value.trim()))
+show("fnameError","Enter at least 3 letters.");
+
+if(!/^[A-Za-z ]{2,}$/.test($("lname").value.trim()))
+show("lnameError","Enter at least 2 letters.");
+
+if(!/^[A-Za-z0-9_]{5,15}$/.test($("username").value.trim()))
+show("usernameError","5-15 letters, numbers or _ only.");
+
+if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test($("email").value.trim()))
+show("emailError","Invalid email.");
+
+if(!/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?#&]).{8,}$/.test($("password").value))
+show("passwordError","Weak password.");
+
+if($("password").value!==$("confirmPassword").value)
+show("confirmError","Passwords do not match.");
+
+if(!/^\d{10}$/.test($("phone").value))
+show("phoneError","Enter a valid 10-digit phone number.");
+
+if(!valid) e.preventDefault();
+
+});
+</script>
+
+</body>
+</html>
